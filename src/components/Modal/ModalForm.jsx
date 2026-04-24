@@ -59,7 +59,7 @@ const ModalForm = props => {
                 let newId = new Date / 1;
                 let newTransaction = {...formData, id: newId};
                 setMoney({balance: newBalance, expenses: newExpense});
-                setTransactionData([...transactionData, newTransaction]);
+                setTransactionData([newTransaction, ...transactionData]);
             }
         }
         if(formType === "Edit Expense"){

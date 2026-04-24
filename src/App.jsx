@@ -21,15 +21,14 @@ function App() {
   const initialRender = useRef(true);
 
   useEffect(()=>{
-    if(initialRender.current)  onLoad();
-
-    return(() => {
+    if(initialRender.current) {
+      onLoad();
       initialRender.current = false;
-    })
+    }
   }, [])
 
   useEffect(()=> {
-    //save data to local storage and if it is initial render skip saving
+    // save data to local storage after initial load
     if(!initialRender.current) {
       localStorage.setItem("allData", JSON.stringify({money, transactionData}));
       localStorage.setItem("expenses", JSON.stringify(transactionData));
