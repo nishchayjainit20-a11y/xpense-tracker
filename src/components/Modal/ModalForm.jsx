@@ -36,8 +36,9 @@ const ModalForm = props => {
         })
     }
     const handleChange = evt => {
-        const key = evt.target.name, value = evt.target.value;
-        setFormData({...formData, [key]: value });
+        const fieldName = evt.target.name === 'title' ? 'name' : evt.target.name;
+        const value = evt.target.value;
+        setFormData({...formData, [fieldName]: value });
     }
     const handleSubmit = evt => {
         evt.preventDefault();
@@ -91,7 +92,7 @@ const ModalForm = props => {
                 onChange={handleChange} 
                 placeholder='Title' 
                 type='text' 
-                name='name'
+                name='title'
                 autoFocus
                 />
                 <input 
